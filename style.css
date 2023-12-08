@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 *,
 *::before,
@@ -27,20 +28,68 @@ body {
   background-color: #f5f5f5;
 }
 
+@-webkit-keyframes slide {
+  20% {
+    margin-left: 0vw;
+  }
+  30% {
+    margin-left: -100vw;
+  }
+  50% {
+    margin-left: -100vw;
+  }
+  60% {
+    margin-left: -200vw;
+  }
+  70% {
+    margin-left: -200vw;
+  }
+  80% {
+    margin-left: -300vw;
+  }
+  90% {
+    margin-left: -300vw;
+  }
+}
+
+@keyframes slide {
+  20% {
+    margin-left: 0vw;
+  }
+  30% {
+    margin-left: -100vw;
+  }
+  50% {
+    margin-left: -100vw;
+  }
+  60% {
+    margin-left: -200vw;
+  }
+  70% {
+    margin-left: -200vw;
+  }
+  80% {
+    margin-left: -300vw;
+  }
+  90% {
+    margin-left: -300vw;
+  }
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   height: fit-content;
-  padding: 2rem;
+  padding-top: 3rem;
   background-color: #fff;
   border-radius: 20px;
   transform: translate(0);
   transform-style: preserve-3d;
 
   @media (min-width: 768px) {
-    width: 50%;
+    width: 50vw;
   }
 }
 
@@ -51,8 +100,8 @@ body {
   transform: translate3d(0, 0, -1px);
   background: conic-gradient(
     from 90deg at 40% -25%,
-    #be1832,
-    #be1832,
+    #f40000,
+    #f40000,
     #be1832,
     #8a041a,
     #490d57,
@@ -65,24 +114,82 @@ body {
     #490d57,
     #8a041a,
     #be1832,
-    #be1832,
-    #be1832
+    #f40000,
+    #f40000
   );
   filter: blur(40px);
 }
 
-.product-title {
-  color: #283618;
-  font-family: "Lato", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+.slider-box {
+  overflow: hidden;
+}
+
+.product-slider {
+  -webkit-animation: slide 18s ease infinite;
+  animation: slide 18s ease infinite;
+  width: 400vw;
+  height: 16rem;
+}
+
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 16rem;
+  margin: 0 5vw;
+  float: left;
+
+  @media (min-width: 768px) {
+    width: 40vw;
+    margin-right: 55vw;
+  }
+}
+
+.product-image {
+  height: 100%;
+  object-fit: cover;
 }
 
 .product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.product-title {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.product-description {
   height: fit-content;
   padding: 1rem;
   font-family: "Lato", sans-serif;
   font-weight: 300;
+  font-size: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+  }
+}
+
+.product-description li {
+  padding: 0.25rem 0;
+  list-style-type: circle;
+}
+
+.product-description .more-info {
+  list-style-type: none;
 }
 
 .button-box {
@@ -90,19 +197,37 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 3rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
   margin-top: 1rem;
+  border-radius: 15px;
+  border: 1px solid #490d57;
+}
+
+.price {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
   height: 3rem;
+  width: 5rem;
+  text-align: center;
+  background-color: #490d57;
   border: none;
-  border-radius: 20px;
-  color: #f5f5f5;
-  background-color: #4f0a4b;
+  border-radius: 10px;
+  transition: 0.5s;
   cursor: pointer;
+}
+
+.button:hover {
+  background-color: #be1832;
+}
+
+.button-icon {
+  height: 2rem;
+  margin: 0.5rem;
 }
