@@ -16,16 +16,66 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+  width: 100%;
 }
 
-.display {
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: fit-content;
   background-color: #f5f5f5;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0, 0, -1px);
+  background: conic-gradient(
+    from 90deg at 40% -25%,
+    #f40000,
+    #f40000,
+    #be1832,
+    #8a041a,
+    #490d57,
+    #490d57,
+    #490d57,
+    #490d57,
+    #490d57,
+    #490d57,
+    #490d57,
+    #490d57,
+    #8a041a,
+    #be1832,
+    #f40000,
+    #f40000
+  );
+  filter: blur(40px);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 3rem;
+  margin: 4rem 0;
+  background-color: #fff;
+  border-radius: 20px;
+  transform: translate(0);
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    width: 50vw;
+  }
+}
+
+.slider-box {
+  overflow: hidden;
 }
 
 @-webkit-keyframes slide {
@@ -76,59 +126,7 @@ body {
   }
 }
 
-.product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: fit-content;
-  padding-top: 3rem;
-  margin: 4rem 0;
-  background-color: #fff;
-  border-radius: 20px;
-  transform: translate(0);
-  transform-style: preserve-3d;
-}
-
-@media (min-width: 768px) {
-  .product-card {
-    width: 50vw;
-  }
-}
-
-.product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translate3d(0, 0, -1px);
-  background: conic-gradient(
-    from 90deg at 40% -25%,
-    #f40000,
-    #f40000,
-    #be1832,
-    #8a041a,
-    #490d57,
-    #490d57,
-    #490d57,
-    #490d57,
-    #490d57,
-    #490d57,
-    #490d57,
-    #490d57,
-    #8a041a,
-    #be1832,
-    #f40000,
-    #f40000
-  );
-  filter: blur(40px);
-}
-
-.slider-box {
-  overflow: hidden;
-}
-
 .product-slider {
-  -moz-animation: slide 18s ease infinite;
   -webkit-animation: slide 18s ease infinite;
   animation: slide 18s ease infinite;
   width: 400vw;
@@ -154,7 +152,6 @@ body {
 
 .product-image {
   height: 100%;
-  object-fit: cover;
 }
 
 .product-info {
@@ -180,7 +177,6 @@ body {
 }
 
 .product-description {
-  height: fit-content;
   padding: 1rem;
   font-family: "Lato", sans-serif;
   font-weight: 300;
